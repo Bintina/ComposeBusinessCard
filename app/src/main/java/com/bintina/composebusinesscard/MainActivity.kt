@@ -20,6 +20,7 @@ import androidx.compose.runtime.Composable
 import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.graphics.Color
+import androidx.compose.ui.res.colorResource
 import androidx.compose.ui.res.painterResource
 import androidx.compose.ui.res.stringResource
 import androidx.compose.ui.tooling.preview.Preview
@@ -34,8 +35,7 @@ class MainActivity : ComponentActivity() {
             ComposeBusinessCardTheme {
                 // A surface container using the 'background' color from the theme
                 Surface(
-                    modifier = Modifier.fillMaxSize(),
-                    color = Color.Cyan
+                    modifier = Modifier.fillMaxSize()
                 ) {
                     BusinessCard("Android")
                 }
@@ -49,16 +49,22 @@ fun BusinessCard(name: String, modifier: Modifier = Modifier) {
     val logo = painterResource(id = R.drawable.free_sample_by_wix)
     Column(
         modifier = Modifier
-            .background(color = Color(R.color.teal_700)),
+            .background(color = colorResource(id = R.color.Base_deep_blue))
+            .fillMaxSize(),
         verticalArrangement = Arrangement.Center,
         horizontalAlignment = Alignment.CenterHorizontally
     ) {
         Image(painter = logo, contentDescription = "Bintina Bytes Logo")
+        //Name
         Text(
             text = name,
-            modifier = modifier
+            color = colorResource(id = R.color.purple_swerve),
+            modifier = modifier,
+            fontSize = 50.sp
         )
-        Text(text = stringResource(R.string.title))
+        //Title
+        Text(text = stringResource(R.string.title),
+        color = colorResource(id = R.color.purple_swerve))
         Contacts(
             "+254 721 259 484",
             "binti@bintinabytes.com", "www.bintinabytes.com", modifier
@@ -71,53 +77,59 @@ fun Contacts(phoneNumber: String, email: String, webUrl: String, modifier: Modif
 
     Column(
         modifier = modifier,
-        verticalArrangement = Arrangement.Center,
+        verticalArrangement = Arrangement.Bottom,
         horizontalAlignment = Alignment.CenterHorizontally
     ) {
 
-
+        //Phone Row
         Row(modifier = modifier
             .padding(15.dp),
-            horizontalArrangement = Arrangement.Center
+            horizontalArrangement = Arrangement.Center,
+            verticalAlignment = Alignment.CenterVertically
 
         ) {
             Icon(
                 painter = painterResource(R.drawable.ic_launcher_foreground),
                 contentDescription = "Phone icon",
-                tint = Color(R.color.teal_700),
+                tint = colorResource(id = R.color.deeper_pink),
                 modifier = Modifier.height(40.dp)
+
 
             )
             Text(
                 phoneNumber,
-                fontSize = 10.sp
+                color = colorResource(id = R.color.triad_baby_pink),
+                fontSize = 20.sp
             )
         }
+        //Email Row
         Row(modifier = modifier,
-            horizontalArrangement = Arrangement.Center
+            horizontalArrangement = Arrangement.Center,
+            verticalAlignment = Alignment.CenterVertically
 
         ) {
             Icon(
                 painter = painterResource(R.drawable.ic_launcher_foreground),
                 contentDescription = "Email icon",
+                tint = colorResource(id = R.color.deeper_pink),
                 modifier = Modifier.height(40.dp)
 
             )
             Text(email,
-                fontSize = 10.sp
+                color = colorResource(id = R.color.triad_baby_pink),
+                fontSize = 20.sp
             )
         }
+        //Website Row
         Row(modifier = modifier,
-            horizontalArrangement = Arrangement.Center
+            horizontalArrangement = Arrangement.Center,
+            verticalAlignment = Alignment.CenterVertically
 
         ) {
-            Icon(
-                painter = painterResource(R.drawable.ic_launcher_foreground),
-                contentDescription = "Web icon",
-                Modifier.height(40.dp)
-            )
+
             Text(webUrl,
-                fontSize = 10.sp
+                color = colorResource(id = R.color.triad_baby_pink),
+                fontSize = 30.sp
             )
         }
     }

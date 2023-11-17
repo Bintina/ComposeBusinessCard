@@ -7,4 +7,15 @@
     <color name="teal_700">#FF018786</color>
     <color name="black">#FF000000</color>
     <color name="white">#FFFFFFFF</color>
+
+    <!--Bintina Colours-->
+<color name="base_pink">#e494f3</color>
+<color name="deeper_pink">#F394D3</color>
+<color name="purple_swerve">#B494F3</color>
+<color name="Base_deep_blue">#0e0325</color>
+<color name="triad_deep_red">#250E03</color>
+<color name="triad_baby_pink">#FDEBFD</color>
+<color name="base_purple">#753873</color>
+
+
 </resources>
