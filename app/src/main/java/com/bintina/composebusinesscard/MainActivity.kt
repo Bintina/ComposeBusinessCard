@@ -54,6 +54,7 @@ fun BusinessCard(name: String, modifier: Modifier = Modifier) {
         verticalArrangement = Arrangement.Center,
         horizontalAlignment = Alignment.CenterHorizontally
     ) {
+        //Logo
         Image(painter = logo, contentDescription = "Bintina Bytes Logo")
         //Name
         Text(
